@@ -8,13 +8,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {CardContent.map((content) => {
 
+      {CardContent.map((content) => {
         return <Card key={content.id} question={content.question} answer={content.answer} tags={content.tags} />
       })}
-
-
-
 
       <Footer />
 
