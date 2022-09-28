@@ -15,11 +15,13 @@ function Footer() {
                             <Home class="icon"></Home>
                         </li>
                     </a>
+      
                     <a href="bookmark.html" class="footer-navigation__link">
                         <li>
                             <Bookmark class="icon"></Bookmark>
                         </li>
                     </a>
+              
                     <a href="profil.html" class="footer-navigation__link">
                         <li>
                             <Plus class="icon"></Plus>

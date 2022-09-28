@@ -1,7 +1,7 @@
 import "../cards/Card.css"
 import { ReactComponent as Logo } from "../images/bookmark-regular.svg"
 
-function Card({question, answer, tagOne, tagTwo, tagThree}) {
+function Card({ question, answer, tagOne, tagTwo, tagThree }) {
     return (
         <>
             <div class="card">
