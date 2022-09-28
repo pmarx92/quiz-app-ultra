@@ -9,27 +9,27 @@ function Footer() {
     return (
         <>
             <footer>
-                <ul class="footer-navigation">
-                    <a href="index.html" class="footer-navigation__link">
+                <ul className="footer-navigation">
+                    <a href="index.html" className="footer-navigation__link">
                         <li>
-                            <Home class="icon"></Home>
+                            <Home className="icon"></Home>
                         </li>
                     </a>
       
-                    <a href="bookmark.html" class="footer-navigation__link">
+                    <a href="bookmark.html" className="footer-navigation__link">
                         <li>
-                            <Bookmark class="icon"></Bookmark>
+                            <Bookmark className="icon"></Bookmark>
                         </li>
                     </a>
               
-                    <a href="profil.html" class="footer-navigation__link">
+                    <a href="profil.html" className="footer-navigation__link">
                         <li>
-                            <Plus class="icon"></Plus>
+                            <Plus className="icon"></Plus>
                         </li>
                     </a>
-                    <a href="form.html" class="footer-navigation__link">
+                    <a href="form.html" className="footer-navigation__link">
                         <li>
-                            <User class="icon"></User>
+                            <User className="icon"></User>
                         </li>
                     </a>
                 </ul>
