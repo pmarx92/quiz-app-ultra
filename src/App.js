@@ -1,22 +1,33 @@
 import './App.css';
 import Header from "../src/components/header/Header"
-import Card from "../src/components/cards/Card"
 import Footer from "../src/components/footer/Footer"
-import { CardContent } from "../src/assets/Db"
+import Cards from "../src/pages/Cards"
+import Create from "../src/pages/Create"
+import Profile from "../src/components/profile/Profile"
+import { cards } from "../src/assets/Db"
+import { useState } from "react"
 
 function App() {
+  const [state, isActive] = useState("home");
+
+
   return (
     <div className="App">
       <Header />
 
-      {CardContent.map((content) => {
-        return <Card key={content.id} question={content.question} answer={content.answer} tags={content.tags} />
-      })}
+      {state === "home" && <Cards cards={cards} />}
+      {state === "bookmark" && (
+        <Cards cards={cards.filter((card) => card.bookmarked)} />
+      )}
+      {state === "add" && <Create />}
+      {state === "profile" && <Profile />}
 
-      <Footer />
+      <Footer isActive={isActive} state={state} />
 
     </div>
   );
 }
+
+
 
 export default App;

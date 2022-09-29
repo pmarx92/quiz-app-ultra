@@ -23,6 +23,9 @@
   font-size: 1.3rem;
   margin: 10px;
 }
+.hide {
+  display: none;
+}
 .card-showAnswer--button {
   width: 30%;
   padding: 9px;

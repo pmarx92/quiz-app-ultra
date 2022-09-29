@@ -3,36 +3,34 @@ import { ReactComponent as Home } from "../images/house-solid.svg"
 import { ReactComponent as Bookmark } from "../images/bookmark-solid.svg"
 import { ReactComponent as Plus } from "../images/plus-solid.svg"
 import { ReactComponent as User } from "../images/user-solid.svg"
+import { useState } from "react"
 
+function Footer({ state, isActive }) {
 
-function Footer() {
     return (
         <>
             <footer>
-                <ul className="footer-navigation">
-                    <a href="index.html" className="footer-navigation__link">
-                        <li>
-                            <Home className="icon"></Home>
-                        </li>
-                    </a>
-      
-                    <a href="bookmark.html" className="footer-navigation__link">
-                        <li>
-                            <Bookmark className="icon"></Bookmark>
-                        </li>
-                    </a>
-              
-                    <a href="profil.html" className="footer-navigation__link">
-                        <li>
-                            <Plus className="icon"></Plus>
-                        </li>
-                    </a>
-                    <a href="form.html" className="footer-navigation__link">
-                        <li>
-                            <User className="icon"></User>
-                        </li>
-                    </a>
-                </ul>
+                <nav className="footer-navigation">
+                    <button type="button" className={`footer-navigation__link ${state === "home" ? "footer-navigation__link--active" : ""
+                        }`} onClick={() => isActive("home")}>
+                        <Home className="icon"></Home>
+                    </button>
+
+                    <button className={`footer-navigation__link ${state === "bookmark" ? " footer-navigation__link--active" : ""
+                        }`} onClick={() => isActive("bookmark")}>
+                        <Bookmark className="icon"></Bookmark>
+                    </button>
+
+                    <button className={`footer-navigation__link ${state === "add" ? "footer-navigation__link--active" : ""
+                        }`} onClick={() => isActive("add")}>
+                        <Plus className="icon"></Plus>
+                    </button>
+
+                    <button className={`footer-navigation__link ${state === "profile" ? "footer-navigation__link--active" : ""
+                        }`} onClick={() => isActive("profile")}>
+                        <User className="icon"></User>
+                    </button>
+                </nav>
             </footer>
         </>
     )
