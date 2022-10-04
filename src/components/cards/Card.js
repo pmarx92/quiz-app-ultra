@@ -1,16 +1,18 @@
 import "../cards/Card.css"
-import { ReactComponent as Logo } from "../images/bookmark-regular.svg"
+import { BsBookmarkStarFill } from 'react-icons/bs';
 import { useState } from "react"
 
 
-function Card({ question, answer, tags, bookmarked }) {
+function Card({ question, answer, tags }) {
     const [state, setState] = useState(false);
+    const [color, setColor] = useState('white');
+
 
     return (
         <>
             <div className="card">
                 <button className="card--icon">
-                    <Logo />
+                    <BsBookmarkStarFill style={{ color: { color }, fontSize: '50px' }} />
                 </button>
                 <h2 className="card-question--headline">{question}</h2>
 

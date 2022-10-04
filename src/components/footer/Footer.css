@@ -21,17 +21,13 @@ footer {
   width: 100%;
   transition: 0.9s;
   background-color: #84b026;
+  padding: 17px;
 }
 .footer-navigation__link--active {
   background-color: #173540;
 }
 .icon {
   height: 35px;
-}
-button {
-  width: 50%;
-  padding: 15px;
-  border: 1px solid #173540;
 }
 .footer-navigation__link:hover {
   background-color: #173540;
