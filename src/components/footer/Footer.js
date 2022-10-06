@@ -20,17 +20,17 @@ function Footer({ state, isActive }) {
                         </NavLink>
                     </StyledNavLinks>
 
-                    <NavLink to="/bookmarks"className={`footer-navigation__link ${state === "bookmark" ? " footer-navigation__link--active" : ""
+                    <NavLink to="bookmarks"className={`footer-navigation__link ${state === "bookmark" ? " footer-navigation__link--active" : ""
                         }`} onClick={() => isActive("bookmark")}>
                         <Bookmark className="icon"></Bookmark>
                     </NavLink>
 
-                    <NavLink to="/create" className={`footer-navigation__link ${state === "add" ? "footer-navigation__link--active" : ""
+                    <NavLink to="create" className={`footer-navigation__link ${state === "add" ? "footer-navigation__link--active" : ""
                         }`} onClick={() => isActive("add")}>
                         <Plus className="icon"></Plus>
                     </NavLink>
 
-                    <NavLink to="/profile" className={`footer-navigation__link ${state === "profile" ? "footer-navigation__link--active" : ""
+                    <NavLink to="profile" className={`footer-navigation__link ${state === "profile" ? "footer-navigation__link--active" : ""
                         }`} onClick={() => isActive("profile")}>
                         <User className="icon"></User>
                     </NavLink>
@@ -57,7 +57,7 @@ list-style-type: none;
 box-shadow: 0 0 10px gray;
 
 `
-const StyledNavLinks = styled.a`
+const StyledNavLinks = styled.li`
   display: flex;
   justify-content: center;
   align-items: center;

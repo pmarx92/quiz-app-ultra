@@ -20,7 +20,7 @@ const cards = [
         question: 'What property flips the axes in flexbox...3',
         answer: 'test3',
         tags: ['random1', 'random2', 'random3'],
-        bookmarked: false
+        bookmarked: true
     },
     {
         id: nanoid(),

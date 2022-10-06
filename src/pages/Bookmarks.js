@@ -1,8 +1,23 @@
-import React from 'react'
+import Card from '../components/cards/Card'
 
-function Bookmarks() {
+
+function Bookmarks({ cards }) {
   return (
-    <h1>Bookmarks!!</h1>
+    <>
+      {cards.map(card => {
+        if (card.bookmarked === true) {
+          return <Card
+            key={card.id}
+            question={card.question}
+            answer={card.answer}
+            tags={card.tags}
+            bookmarked={card.bookmarked}
+          />
+        } else {
+          return ""
+        }
+      })}
+    </>
   )
 }
 
