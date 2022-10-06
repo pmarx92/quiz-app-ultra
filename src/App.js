@@ -33,6 +33,7 @@ function App(bookmarked) {
  */}
       <Routes>
         <Route path="/" element={<Cards cards={cards} />} />
+        <Route path="/bookmarks" element={<Bookmarks />} />
         <Route path="/create" element={<Create />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
