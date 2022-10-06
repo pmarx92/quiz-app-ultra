@@ -14,7 +14,6 @@ import { Route, Routes } from 'react-router-dom';
 function App(bookmarked) {
   const [allCards, setAllCards] = useState(cards);
   const [state, isActive] = useState("home");
-  const [isBookmarked, setisBookmarked] = useState(false);
 
 
   const bookmark = (id) => {
