@@ -13,12 +13,11 @@ import { useState, useEffect } from "react"
 function App() {
   const [allCards, setAllCards] = useState(loadLocalStorage("allCards") ?? cardArray);
   const [showActivePage, setshowActivePage] = useState("home");
-  const [bookmarkedCards, setBookmarkedCards] = useState(loadLocalStorage("bookmarked") ?? []);
+
 
 
   useEffect(() => {
     setLocalStorage("localSavedCards", allCards);
-    setLocalStorage("bookmarked", bookmarkedCards)
   }, [allCards])
 
   const handleBookmark = (id) => {
