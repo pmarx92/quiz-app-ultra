@@ -3,7 +3,7 @@ import { BsBookmarkStarFill } from 'react-icons/bs';
 import { useState } from "react"
 
 
-function Card({ question, answer, tags }) {
+function Card({ question, answer, tags, handleBookmark, id }) {
     const [showAnswer, setShowAnswer] = useState(false);
     const [bookmarkColor, setBookmarkColor] = useState(false);
 
@@ -11,7 +11,7 @@ function Card({ question, answer, tags }) {
     return (
         <>
             <div className="card">
-                <button className="card--icon">
+                <button className="card--icon" onClick={() => handleBookmark(id)}>
                     <BsBookmarkStarFill onClick={() => setBookmarkColor(!bookmarkColor)}
                         style={{ color: !bookmarkColor ? "black" : "white", fontSize: '50px' }} />
                 </button>
