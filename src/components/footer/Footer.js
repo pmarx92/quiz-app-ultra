@@ -7,31 +7,31 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 
-function Footer({ state, isActive }) {
+function Footer({ setshowActivePage, showActivePage }) {
 
     return (
         <>
             <StyledFooter>
                 <FooterNavigation>
                     <StyledNavLinks>
-                        <NavLink to="/" type="button" className={`footer-navigation__link ${state === "home" ? "footer-navigation__link--active" : ""
-                            }`} onClick={() => isActive("home")}>
+                        <NavLink to="/" type="button" className={`footer-navigation__link ${showActivePage === "home" ? "footer-navigation__link--active" : ""
+                            }`} onClick={() => setshowActivePage("home")}>
                             <Home className="icon"></Home>
                         </NavLink>
                     </StyledNavLinks>
 
-                    <NavLink to="bookmarks"className={`footer-navigation__link ${state === "bookmark" ? " footer-navigation__link--active" : ""
-                        }`} onClick={() => isActive("bookmark")}>
+                    <NavLink to="bookmarks"className={`footer-navigation__link ${showActivePage === "bookmark" ? " footer-navigation__link--active" : ""
+                        }`} onClick={() => setshowActivePage("bookmark")}>
                         <Bookmark className="icon"></Bookmark>
                     </NavLink>
 
-                    <NavLink to="create" className={`footer-navigation__link ${state === "add" ? "footer-navigation__link--active" : ""
-                        }`} onClick={() => isActive("add")}>
+                    <NavLink to="create" className={`footer-navigation__link ${showActivePage === "add" ? "footer-navigation__link--active" : ""
+                        }`} onClick={() => setshowActivePage("add")}>
                         <Plus className="icon"></Plus>
                     </NavLink>
 
-                    <NavLink to="profile" className={`footer-navigation__link ${state === "profile" ? "footer-navigation__link--active" : ""
-                        }`} onClick={() => isActive("profile")}>
+                    <NavLink to="profile" className={`footer-navigation__link ${showActivePage === "profile" ? "footer-navigation__link--active" : ""
+                        }`} onClick={() => setshowActivePage("profile")}>
                         <User className="icon"></User>
                     </NavLink>
                 </FooterNavigation>

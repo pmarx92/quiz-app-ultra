@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-const cards = [
+const cardArray = [
     {
         id: nanoid(),
         question: 'What property flips the axes in flexbox...1',
@@ -38,4 +38,4 @@ const cards = [
     }
 ]
 
-export default cards;
+export default cardArray;

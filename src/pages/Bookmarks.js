@@ -1,7 +1,7 @@
 import Card from '../components/cards/Card'
 
 
-function Bookmarks({ cards }) {
+function Bookmarks({ cards, setBookmark}) {
   return (
     <>
       {cards.map(card => {
@@ -11,7 +11,7 @@ function Bookmarks({ cards }) {
             question={card.question}
             answer={card.answer}
             tags={card.tags}
-            bookmarked={card.bookmarked}
+            onClick={(e) => setBookmark(e)}
           />
         } else {
           return ""

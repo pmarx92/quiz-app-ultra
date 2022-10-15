@@ -2,24 +2,29 @@ import './App.css';
 import Header from "../src/components/header/Header"
 import Footer from "../src/components/footer/Footer"
 import Cards from "../src/pages/Cards"
-import { useState, useEffect } from "react"
-import cards from './assets/Db'
+import cardArray from './assets/Db'
 import Bookmarks from './pages/Bookmarks'
 import Create from "../src/pages/Create"
 import Profile from "../src/components/profile/Profile"
 import { Route, Routes } from 'react-router-dom';
-import {setLocalStorage, loadLocalStorage} from './assets/Storage';
+import { setLocalStorage, loadLocalStorage } from './assets/Storage';
+import { useState, useEffect } from "react"
 
 function App() {
-  const [allCards, setAllCards] = useState(loadLocalStorage("allCards") ?? cards);
-  const [state, isActive] = useState("home");
+  const [allCards, setAllCards] = useState(loadLocalStorage("allCards") ?? cardArray);
+  const [showActivePage, setshowActivePage] = useState("home");
+  const [bookmarkedCards, setBookmarkedCards] = useState(loadLocalStorage("bookmarked") ?? cardArray);
 
-useEffect(() => {
-  setLocalStorage("localSavedCards", allCards);
-}, [allCards])
 
-  const bookmark = (id) => {
-    setAllCards(allCards.map((card) => card.id === id ? { ...card, bookmarked: !card.bookmarked } : card))
+  useEffect(() => {
+    setLocalStorage("localSavedCards", allCards);
+    setLocalStorage("bookmarked", bookmarkedCards)
+  }, [allCards])
+
+  const setBookmark = (id) => {
+    setAllCards(allCards.filter((card) => card.id === id ? { ...card, bookmarked: false } : card))
+
+    console.log('clicked')
   }
 
   return (
@@ -27,13 +32,13 @@ useEffect(() => {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Cards cards={cards} bookmark={bookmark} />} />
-        <Route path="/bookmarks" element={<Bookmarks cards={cards} bookmark={bookmark} />} />
+        <Route path="/" element={<Cards cardArray={cardArray} setBookmark={setBookmark} />} />
+        <Route path="/bookmarks" element={<Bookmarks cardArray={cardArray} setBookmark={setBookmark} />} />
         <Route path="/create" element={<Create />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
 
-      <Footer isActive={isActive} state={state} />
+      <Footer setshowActivePage={setshowActivePage} showActivePage={showActivePage} />
 
 
     </div>

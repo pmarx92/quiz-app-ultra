@@ -1,16 +1,17 @@
 import Card from "../components/cards/Card";
 
 
-function Cards({ cards }) {
+function Cards({ cardArray, setBookmark }) {
     return (
         <div className="cards">
-            {cards.map((card) => (
+            {cardArray.map((card) => (
                 <Card
                     key={card.id}
                     question={card.question}
                     answer={card.answer}
                     tags={card.tags}
                     bookmarked={card.bookmarked}
+                    setBookmark={() => setBookmark()}
                 />
             ))}
         </div>
