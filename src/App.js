@@ -13,7 +13,7 @@ import { useState, useEffect } from "react"
 function App() {
   const [allCards, setAllCards] = useState(loadLocalStorage("allCards") ?? cardArray);
   const [showActivePage, setshowActivePage] = useState("home");
-  const [bookmarkedCards, setBookmarkedCards] = useState(loadLocalStorage("bookmarked") ?? cardArray);
+  const [bookmarkedCards, setBookmarkedCards] = useState(loadLocalStorage("bookmarked") ?? []);
 
 
   useEffect(() => {
@@ -21,10 +21,13 @@ function App() {
     setLocalStorage("bookmarked", bookmarkedCards)
   }, [allCards])
 
-  const setBookmark = (id) => {
-    setAllCards(allCards.filter((card) => card.id === id ? { ...card, bookmarked: false } : card))
+  const handleBookmark = (id) => {
+    setAllCards(allCards.map((card) => card.id === id ? { ...card, bookmarked: !card.bookmarked } : card));
+  }
 
-    console.log('clicked')
+  const removeFromBookmarkedList = (id) => {
+    const changeBookmarkStatus = setAllCards(allCards.filter(card => card.id !== id))
+    setAllCards(changeBookmarkStatus);
   }
 
   return (
@@ -32,8 +35,8 @@ function App() {
       <Header />
 
       <Routes>
-        <Route path="/" element={<Cards cardArray={cardArray} setBookmark={setBookmark} />} />
-        <Route path="/bookmarks" element={<Bookmarks cardArray={cardArray} setBookmark={setBookmark} />} />
+        <Route path="/" element={<Cards allCards={allCards} handleBookmark={handleBookmark} removeFromBookmarkedList={removeFromBookmarkedList} />} />
+        <Route path="/bookmarks" element={<Bookmarks cards={allCards.filter((card) => card.bookmarked)} removeFromBookmarkedList={removeFromBookmarkedList} handleBookmark={handleBookmark} />} />
         <Route path="/create" element={<Create />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
