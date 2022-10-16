@@ -15,7 +15,6 @@ function App() {
   const [showActivePage, setshowActivePage] = useState("home");
 
 
-
   useEffect(() => {
     setLocalStorage("localSavedCards", allCards);
   }, [allCards])
