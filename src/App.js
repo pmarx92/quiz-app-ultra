@@ -9,11 +9,11 @@ import Profile from "../src/components/profile/Profile"
 import { Route, Routes } from 'react-router-dom';
 import { setLocalStorage, loadLocalStorage } from './assets/Storage';
 import { useState, useEffect } from "react"
+import { nanoid } from 'nanoid';
 
 function App() {
-  const [allCards, setAllCards] = useState(loadLocalStorage("allCards") ?? cardArray);
+  const [allCards, setAllCards] = useState(loadLocalStorage("localSavedCards") ?? cardArray);
   const [showActivePage, setshowActivePage] = useState("home");
-
 
 
   useEffect(() => {
@@ -29,6 +29,18 @@ function App() {
     setAllCards(changeBookmarkStatus);
   }
 
+  const handleSubmit = ({ inputQuestion, inputAnswer, tagOne, tagTwo, tagThree }) => {
+
+    const newQuestion = {
+      id: nanoid(),
+      question: inputQuestion,
+      answer: inputAnswer,
+      tags: [tagOne, tagTwo, tagThree],
+      bookmarked: false
+    }
+
+    setAllCards([...allCards].concat(newQuestion));
+  }
   return (
     <div className="App">
       <Header />
@@ -36,7 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Cards allCards={allCards} handleBookmark={handleBookmark} removeFromBookmarkedList={removeFromBookmarkedList} />} />
         <Route path="/bookmarks" element={<Bookmarks cards={allCards.filter((card) => card.bookmarked)} removeFromBookmarkedList={removeFromBookmarkedList} handleBookmark={handleBookmark} />} />
-        <Route path="/create" element={<Create />} />
+        <Route path="/create" element={<Create handleSubmit={handleSubmit} />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
 

@@ -13,7 +13,7 @@ const cardArray = [
         question: 'What property flips the axes in flexbox...2',
         answer: 'test2',
         tags: ['random1', 'random2', 'random3'],
-        bookmarked: false
+        bookmarked: true
     },
     {
         id: nanoid(),
@@ -27,7 +27,7 @@ const cardArray = [
         question: 'What property flips the axes in flexbox...4',
         answer: 'test4',
         tags: ['random1', 'random2', 'random3'],
-        bookmarked: false
+        bookmarked: true
     },
     {
         id: nanoid(),
