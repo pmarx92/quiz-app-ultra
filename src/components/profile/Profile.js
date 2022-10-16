@@ -44,7 +44,6 @@ ${({ darkmode }) =>
 `
 const ProfileHeader = styled.div`
 padding: 20px;
-border: 1px solid red;
 margin-top: 2rem;
 display: flex;
 justify-content: center;
