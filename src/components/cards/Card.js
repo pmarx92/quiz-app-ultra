@@ -1,37 +1,51 @@
-import "../cards/Card.css"
-import { BsBookmarkStarFill } from 'react-icons/bs';
-import { useState } from "react"
-
+import "../cards/Card.css";
+import { BsBookmarkStarFill } from "react-icons/bs";
+import { useState } from "react";
 
 function Card({ question, answer, tags, handleBookmark, id }) {
-    const [showAnswer, setShowAnswer] = useState(false);
-    const [bookmarkColor, setBookmarkColor] = useState(false);
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [bookmarkColor, setBookmarkColor] = useState(false);
 
+  return (
+    <>
+      <div className="card">
+        <button className="card--icon" onClick={() => handleBookmark(id)}>
+          <BsBookmarkStarFill
+            onClick={() => setBookmarkColor(!bookmarkColor)}
+            style={{
+              color: !bookmarkColor ? "black" : "white",
+              fontSize: "50px",
+            }}
+          />
+        </button>
+        <h2 className="card-question--headline">{question}</h2>
 
-    return (
-        <>
-            <div className="card">
-                <button className="card--icon" onClick={() => handleBookmark(id)}>
-                    <BsBookmarkStarFill onClick={() => setBookmarkColor(!bookmarkColor)}
-                        style={{ color: !bookmarkColor ? "black" : "white", fontSize: '50px' }} />
-                </button>
-                <h2 className="card-question--headline">{question}</h2>
+        <button
+          className="card-showAnswer--button"
+          onClick={() => setShowAnswer(!showAnswer)}
+        >
+          {!showAnswer ? "Show Answer" : "Hide Answer"}
+        </button>
+        {showAnswer && (
+          <p className="card-answer" data-js="answer">
+            {answer}
+          </p>
+        )}
 
-                <button className="card-showAnswer--button" onClick={() => setShowAnswer(!showAnswer)}>{!showAnswer ? 'Show Answer' : 'Hide Answer'}</button>
-                {showAnswer && (
-                    <p className="card-answer" data-js="answer">{answer}</p>
-                )}
-
-                <div className="card-bookmark--links">
-                    <div className="card-bookmarks">
-                        {tags.map((tag) => {
-                            return <a href="." className="card-bookmarks--link">{tag}</a>
-                        })}
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+        <div className="card-bookmark--links">
+          <div className="card-bookmarks">
+            {tags.map((tag) => {
+              return (
+                <a href="." className="card-bookmarks--link">
+                  {tag}
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Card;
